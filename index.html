@@ -1,10 +1,50 @@
 <!DOCTYPE html>
 <html>
+    <head></head>
+    <body></body>
     <script>
-        fetch('./files/bibles/kjv.json')
-            .then(res => res.json()).then(
+
+        const extractSearchParams = () => {
+            const params = new URL(window.location.href).searchParams;
+            const bibleParams = {
+                'book': params.get('book'),
+                'chapter': params.get('chapter')
+            }
+            return bibleParams;
+        }
+
+        const FilterBookAndVerses = (verses, book, chapter, verseNumber) => {
+            return verses.filter(verse => {
+                let valid = true;
+                if (book) {
+                    valid = book == verse.book;
+                    if (chapter) {
+                        valid = valid && chapter == verse.chapter;
+                        if (verseNumber) {
+                            valid = valid && verseNumber == verse.verse
+                        }
+                    }
+                }
+                return valid;
+            });
+        
+        }
+        const params = extractSearchParams();
+        console.log(params);
+        fetch('./files/bibles/kjv.json', headers={
+            'Sec-Fetch-Mode': 'cors'
+        })
+            .then(res => {
+                console.log(res.status)
+                return res.json()
+            }).then(
                 json => {
-                    console.log(json);
+                    console.log(json.verses);
+                    document.write(JSON.stringify(
+                        FilterBookAndVerses(
+                            json.verses, params.book, params.chapter
+                        )
+                    ));
                 }
             );
         console.log('something');
