@@ -1,0 +1,12 @@
+[
+    {
+        "language": "eng",
+        "type": "kjv",
+        "full_name": "King James Version"
+    },
+    {
+        "language": "eng",
+        "type": "asv",
+        "full_name": "American Standard Version"
+    }
+]
