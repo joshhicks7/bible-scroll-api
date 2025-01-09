@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
     <script>
-        fetch('./files/bibles/kjv.json').then(
-            res => console.log(res)
-        );
+        fetch('./files/bibles/kjv.json')
+            .then(res => res.json()).then(
+                json => {
+                    console.log(json);
+                }
+            );
         console.log('something');
     </script>
 </html>
