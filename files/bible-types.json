@@ -3,12 +3,14 @@
         "language": "eng",
         "type": "kjv",
         "full_name": "King James Version",
-        "url": "https://joshhicks7.github.io/bible-scroll-api/files/bibles/kjv.json"
+        "url": "https://joshhicks7.github.io/bible-scroll-api/files/bibles/kjv.json",
+        "key": 0
     },
     {
         "language": "eng",
         "type": "asv",
         "full_name": "American Standard Version",
-        "url": "https://joshhicks7.github.io/bible-scroll-api/files/bibles/asv.json"
+        "url": "https://joshhicks7.github.io/bible-scroll-api/files/bibles/asv.json",
+        "key": 1
     }
 ]
